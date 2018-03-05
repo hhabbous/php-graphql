@@ -1,0 +1,22 @@
+{
+    "name": "php-graphql",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Hatim HABBOUS",
+            "email": "hatim.habbous@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Application\\GraphQL\\": "application/graphqlapi",
+            "Application\\FrontEnd\\": "application/frontend"
+        }
+    },
+    "require": {
+        "youshido/graphql": "^1.5"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
+}

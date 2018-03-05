@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  php:
+    image: php:7.2-apache
+    ports:
+      - 80:80
+    volumes:
+      - ${PROJECT_APP_PATH}:/var/www/html/php_graphql
+      - ./docker/config/php_graphql.local.conf:/etc/apache2/sites-enabled/000-default.conf
+    extra_hosts:
+      - php-graphql.local:127.0.0.1
