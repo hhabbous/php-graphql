@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\GraphQL\Type;
+namespace PQ\GraphQL\Type;
 
 use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;

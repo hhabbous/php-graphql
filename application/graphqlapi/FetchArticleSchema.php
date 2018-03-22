@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\GraphQL;
+namespace PQ\GraphQL;
 
-use Application\GraphQL\Field\ArticleField;
+use PQ\GraphQL\Field\ArticleField;
 use Youshido\GraphQL\Config\Schema\SchemaConfig;
 use Youshido\GraphQL\Schema\AbstractSchema;
 

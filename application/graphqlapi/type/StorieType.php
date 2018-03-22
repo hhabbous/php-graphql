@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\GraphQL\Type;
+namespace PQ\GraphQL\Type;
 
 use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
@@ -29,7 +29,7 @@ class StorieType extends AbstractObjectType
                 [
                     "type" => new StringType(),
                     "resolve" => function ($source, $args) {
-                        return date($args["format"], strtotime($source["publishedDate"]));
+                        return date("M d, Y", strtotime($source["publishedDate"]));
                     },
                 ]
             );

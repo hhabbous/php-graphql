@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\GraphQL\Field;
+namespace PQ\GraphQL\Field;
 
-use Application\GraphQL\Type\ArticleType;
+use PQ\GraphQL\Type\ArticleType;
 use Youshido\GraphQL\Config\Field\FieldConfig;
 use Youshido\GraphQL\Execution\ResolveInfo;
 use Youshido\GraphQL\Field\AbstractField;
@@ -18,8 +18,9 @@ use Youshido\GraphQL\Type\Scalar\StringType;
 class ArticleField extends AbstractField
 {
 
+
     /**
-     * @return AbstractObjectType|AbstractType
+     * @return ListType
      */
     public function getType()
     {
@@ -49,7 +50,7 @@ class ArticleField extends AbstractField
     public function resolve($value, array $args, ResolveInfo $info)
     {
         $data = json_decode(
-            file_get_contents(ROOT ."data.json"),
+            file_get_contents(ROOT . "data.json"),
             true
         );
 
@@ -62,7 +63,7 @@ class ArticleField extends AbstractField
                 if (!empty($args["keyword"]) && strpos($item["content"], $args["keyword"]) === false) {
                     return false;
                 }
-                if (!empty($args["date"]) && date('d/m/Y', strtotime($item["publishedDate"])) != $args["date"]) {
+                if (!empty($args["date"]) && date('Y-m-d', strtotime($item["publishedDate"])) != $args["date"]) {
                     return false;
                 }
                 return true;

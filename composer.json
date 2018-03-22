@@ -9,8 +9,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Application\\GraphQL\\": "application/graphqlapi",
-            "Application\\FrontEnd\\": "application/frontend"
+            "PQ\\GraphQL\\": "application/graphqlapi",
+            "PQ\\FrontEnd\\": "application/frontend"
         }
     },
     "require": {

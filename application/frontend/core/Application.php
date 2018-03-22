@@ -1,9 +1,13 @@
 <?php
 
-namespace Application\FrontEnd\core;
+namespace PQ\FrontEnd\core;
 
-use Application\FrontEnd\controller\Home;
+use PQ\FrontEnd\controller\Blog;
 
+/**
+ * Class Application
+ * @package PQ\FrontEnd\core
+ */
 class Application
 {
 
@@ -26,10 +30,10 @@ class Application
 
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
-            $page = new Home();
+            $page = new Blog();
             $page->index();
         } elseif (class_exists(
-            $this->url_controller = sprintf("Application\FrontEnd\controller\%s", ucfirst($this->url_controller))
+            $this->url_controller = sprintf("PQ\FrontEnd\controller\%s", ucfirst($this->url_controller))
         )) {
             // here we did check for controller: does such a controller exist ?
             // if so, then load this file and create this controller
@@ -49,11 +53,11 @@ class Application
                     // no action defined: call the default index() method of a selected controller
                     $page->index();
                 } else {
-                    require APP . "frontend/view/page-404.php";
+                    require THEME_FOLDER . "/page-404.php";
                 }
             }
         } else {
-            require APP . "frontend/view/page-404.php";
+            require THEME_FOLDER . "/page-404.php";
         }
     }
 
@@ -65,7 +69,7 @@ class Application
         if (isset($_GET['url'])) {
             // split URL
             $url = trim($_GET['url'], '/');
-            $url = filter_var($url, FILTER_SANITIZE_URL);
+            // $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
 
             // Put URL parts into according properties
